@@ -342,9 +342,6 @@ spec:
         volumeMounts:
         - name: redis-data
           mountPath: /data
-      volumes:
-      - name: redis-data
-        emptyDir: {}
         livenessProbe:
           periodSeconds: 5
           tcpSocket:
@@ -353,6 +350,9 @@ spec:
           periodSeconds: 5
           tcpSocket:
             port: 6379
+      volumes:
+      - name: redis-data
+        emptyDir: {}
 ---
 apiVersion: v1
 kind: Service
